@@ -1,0 +1,32 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#### Code for Interactive Data Visualizations 
+
+## Setup 
+library(esquisse)
+library(ggplot2)
+library(ggthemes)
+library(manipulate)
+library(mosaic)
+library(tidytuesdayR)
+
+#####################
+# Example - 3 Interactve
+#####################
+```{r}
+TidyTuesdayData <- tt_load(2020, week = 52)
+BigMac <- TidyTuesdayData[["big-mac"]]
+
+esquisser(BigMac)
+
+ggplot(BigMac) +
+  aes(x = dollar_price, y = gdp_dollar) +
+  geom_point(
+    size = 2.75,
+    shape = "square",
+    colour = "#B22222"
+  ) +
+  theme_minimal()
+
